@@ -67,7 +67,7 @@ http://localhost:8000
 
 ## Notes
 
-This project was built to strengthen my skills in frontend development, responsive design, UI/UX, and JavaScript while creating a realistic SaaS product experience.
+I built this weather app to improve my frontend development skills and practice JavaScript, API integration, responsive design, and dynamic UI. It fetches real-time weather data from an API and displays it in a clean and responsive interface.
 
 ## Author
 

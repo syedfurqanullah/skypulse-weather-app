@@ -5,7 +5,7 @@ A modern, responsive weather dashboard built with HTML, CSS, and JavaScript — 
 ## Live Demo
 
 SkyPulse — Modern Weather Dashboard
-https://skypulseweather.netlify.app/
+https://skypulseweatherapp.netlify.app/
 
 ## 📸 Screenshots
 

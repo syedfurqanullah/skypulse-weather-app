@@ -1,0 +1,2302 @@
+/* =========================================================
+   01. DESIGN SYSTEM
+   ========================================================= */
+
+:root {
+  --bg: #070d1b;
+  --bg-soft: #0b1325;
+
+  --surface: #101a2f;
+  --surface-2: #14213a;
+  --surface-3: #182744;
+
+  --primary: #4f8cff;
+  --primary-hover: #639bff;
+
+  --text: #f7f9ff;
+  --text-soft: #aebbd3;
+  --text-muted: #71809c;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.13);
+
+  --success: #63d471;
+  --warning: #f5c85b;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.24);
+
+  --shadow-hover: 0 18px 42px rgba(0, 0, 0, 0.3);
+
+  --container: 1800px;
+  --sidebar: 230px;
+
+  --transition-fast: 160ms ease;
+  --transition: 220ms ease;
+}
+
+/* =========================================================
+   02. RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 8% 0%,
+      rgba(67, 108, 190, 0.16),
+      transparent 32rem
+    ),
+    var(--bg);
+
+  color: var(--text);
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  border: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3,
+figure,
+dl,
+dd {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* =========================================================
+   03. GLOBAL FOCUS
+   ========================================================= */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--primary-hover);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   04. HEADER
+   ========================================================= */
+
+body > header {
+  width: min(calc(100% - 32px), var(--container));
+
+  min-height: 76px;
+
+  margin: 16px auto 0;
+  padding: 12px 20px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+
+  background: rgba(16, 26, 47, 0.96);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+}
+
+/* =========================================================
+   05. LOGO
+   ========================================================= */
+
+body > header > a {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 9px;
+
+  color: var(--text);
+
+  font-size: 20px;
+  font-weight: 750;
+
+  letter-spacing: -0.04em;
+}
+
+body > header > a span:first-child {
+  font-size: 26px;
+}
+
+/* =========================================================
+   06. SEARCH
+   ========================================================= */
+
+body > header form {
+  flex: 1;
+
+  width: 100%;
+  max-width: 560px;
+
+  margin-inline: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+/* Accessible hidden label */
+
+body > header form label {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+/* Search input */
+
+body > header form input {
+  flex: 1;
+
+  min-width: 0;
+  min-height: 46px;
+
+  padding: 11px 14px;
+
+  color: var(--text);
+
+  background: var(--bg-soft);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+
+  outline: none;
+
+  transition:
+    border-color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+body > header form input::placeholder {
+  color: var(--text-muted);
+}
+
+body > header form input:hover {
+  border-color: var(--border-strong);
+}
+
+body > header form input:focus {
+  background: #0d1830;
+
+  border-color: rgba(79, 140, 255, 0.65);
+}
+
+/* Search button */
+
+body > header form button {
+  flex-shrink: 0;
+
+  min-height: 46px;
+
+  padding: 0 18px;
+
+  color: white;
+
+  background: var(--primary);
+
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+body > header form button:hover {
+  background: var(--primary-hover);
+
+  transform: translateY(-1px);
+}
+
+body > header form button:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   07. HEADER ACTIONS
+   ========================================================= */
+
+body > header > nav {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+body > header > nav button {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--text-soft);
+
+  background: transparent;
+
+  border-radius: 12px;
+
+  cursor: pointer;
+
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+body > header > nav button:hover {
+  color: var(--text);
+
+  background: rgba(255, 255, 255, 0.07);
+}
+
+/* =========================================================
+   08. MAIN DASHBOARD WRAPPER
+   ========================================================= */
+
+.dashboard {
+  width: min(calc(100% - 32px), var(--container));
+
+  margin: 16px auto;
+
+  display: grid;
+
+  grid-template-columns:
+    var(--sidebar)
+    minmax(0, 1fr);
+
+  gap: 16px;
+
+  align-items: start;
+}
+
+/* =========================================================
+   09. SIDEBAR
+   ========================================================= */
+
+.dashboard > aside {
+  position: sticky;
+  top: 16px;
+
+  min-width: 0;
+  min-height: calc(100vh - 32px);
+
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+}
+
+/* =========================================================
+   10. SIDEBAR NAVIGATION
+   ========================================================= */
+
+.dashboard > aside > nav {
+  width: 100%;
+}
+
+.dashboard > aside > nav ul {
+  display: grid;
+
+  gap: 4px;
+}
+
+.dashboard > aside > nav a {
+  display: flex;
+  align-items: center;
+
+  min-height: 44px;
+
+  padding: 10px 12px;
+
+  color: var(--text-soft);
+
+  border-radius: 11px;
+
+  font-size: 14px;
+  font-weight: 550;
+
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast);
+}
+
+.dashboard > aside > nav a:hover {
+  color: var(--text);
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.dashboard > aside > nav li:first-child a {
+  color: white;
+
+  background: linear-gradient(135deg, #315fcf, #2148a3);
+
+  box-shadow: 0 8px 20px rgba(49, 95, 207, 0.18);
+}
+
+/* =========================================================
+   11. TEMPERATURE SWITCH
+   ========================================================= */
+
+.dashboard > aside > section[aria-labelledby="temperature-unit-title"] {
+  margin-top: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 4px;
+
+  padding: 4px;
+
+  background: var(--bg-soft);
+
+  border: 1px solid var(--border);
+
+  border-radius: 12px;
+}
+
+.dashboard > aside > section[aria-labelledby="temperature-unit-title"] h2 {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+}
+
+.dashboard > aside > section[aria-labelledby="temperature-unit-title"] button {
+  min-height: 36px;
+
+  color: var(--text-muted);
+
+  background: transparent;
+
+  border-radius: 9px;
+
+  cursor: pointer;
+}
+
+.dashboard
+  > aside
+  > section[aria-labelledby="temperature-unit-title"]
+  button[aria-pressed="true"] {
+  color: white;
+
+  background: #26375b;
+}
+
+/* =========================================================
+   12. PREMIUM CARD
+   ========================================================= */
+
+.dashboard > aside > section[aria-labelledby="premium-title"] {
+  margin-top: 14px;
+
+  padding: 14px;
+
+  background: linear-gradient(145deg, #172b55, #101d39);
+
+  border: 1px solid rgba(79, 140, 255, 0.16);
+
+  border-radius: var(--radius-md);
+}
+
+.dashboard > aside > section[aria-labelledby="premium-title"] h2 {
+  margin-bottom: 6px;
+
+  font-size: 14px;
+}
+
+.dashboard > aside > section[aria-labelledby="premium-title"] p {
+  margin-bottom: 14px;
+
+  color: var(--text-soft);
+
+  font-size: 12px;
+
+  line-height: 1.55;
+}
+
+.dashboard > aside > section[aria-labelledby="premium-title"] a {
+  min-height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+
+  background: var(--primary);
+
+  border-radius: 10px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  transition:
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.dashboard > aside > section[aria-labelledby="premium-title"] a:hover {
+  background: var(--primary-hover);
+
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   13. MAIN CONTENT
+   ========================================================= */
+
+.dashboard > main {
+  min-width: 0;
+
+  display: grid;
+
+  /*
+       Desktop layout:
+
+       Current Weather | 7-Day Forecast
+       Hourly          | 7-Day Forecast
+       Air Quality     | Air Quality
+       Bottom Cards    | Bottom Cards
+    */
+
+  grid-template-columns:
+    minmax(0, 1.65fr)
+    minmax(320px, 0.95fr);
+
+  grid-template-rows:
+    auto
+    auto
+    auto
+    auto;
+
+  grid-template-areas:
+    "current forecast"
+    "hourly forecast"
+    "air     air"
+    "bottom  bottom";
+
+  gap: 16px;
+}
+
+/* =========================================================
+   14. CURRENT WEATHER HERO
+   ========================================================= */
+
+.dashboard > main > section[aria-labelledby="current-weather-title"] {
+  grid-area: current;
+
+  min-width: 0;
+  min-height: 430px;
+
+  padding: clamp(22px, 3vw, 36px);
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: linear-gradient(135deg, #183d7d 0%, #153367 48%, #101f40 100%);
+
+  border: 1px solid var(--border-strong);
+
+  border-radius: var(--radius-xl);
+
+  box-shadow: var(--shadow);
+}
+
+/* Decorative glow */
+
+.dashboard > main > section[aria-labelledby="current-weather-title"]::after {
+  content: "";
+
+  position: absolute;
+
+  width: 320px;
+  height: 320px;
+
+  top: -150px;
+  right: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(107, 170, 255, 0.12);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   15. CURRENT WEATHER HEADER
+   ========================================================= */
+
+.dashboard > main > section[aria-labelledby="current-weather-title"] > header {
+  position: relative;
+  z-index: 1;
+
+  margin-bottom: 30px;
+}
+
+.dashboard
+  > main
+  > section[aria-labelledby="current-weather-title"]
+  > header
+  p:first-child {
+  margin-bottom: 4px;
+
+  font-size: clamp(20px, 2vw, 30px);
+
+  font-weight: 700;
+
+  letter-spacing: -0.035em;
+}
+
+.dashboard
+  > main
+  > section[aria-labelledby="current-weather-title"]
+  > header
+  p:last-child {
+  color: #b7c6e5;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   16. CURRENT TEMPERATURE
+   ========================================================= */
+
+.dashboard > main > section[aria-labelledby="current-weather-title"] > article {
+  position: relative;
+  z-index: 1;
+
+  margin-bottom: 32px;
+}
+
+.dashboard
+  > main
+  > section[aria-labelledby="current-weather-title"]
+  > article
+  h1 {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+}
+
+.dashboard
+  > main
+  > section[aria-labelledby="current-weather-title"]
+  > article
+  p:first-of-type {
+  margin-bottom: 8px;
+
+  font-size: clamp(64px, 8vw, 118px);
+
+  line-height: 0.9;
+
+  font-weight: 750;
+
+  letter-spacing: -0.075em;
+}
+
+.dashboard
+  > main
+  > section[aria-labelledby="current-weather-title"]
+  > article
+  p:nth-of-type(2) {
+  margin-bottom: 5px;
+
+  font-size: clamp(18px, 2vw, 25px);
+
+  font-weight: 650;
+}
+
+.dashboard
+  > main
+  > section[aria-labelledby="current-weather-title"]
+  > article
+  p:last-of-type {
+  color: #b7c6e5;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   17. CURRENT WEATHER DETAILS
+   ========================================================= */
+
+.dashboard > main > section[aria-labelledby="current-weather-title"] > section {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: 10px;
+}
+
+.dashboard
+  > main
+  > section[aria-labelledby="current-weather-title"]
+  > section
+  article {
+  min-width: 0;
+
+  padding: 14px;
+
+  background: rgba(7, 17, 40, 0.34);
+
+  border: 1px solid rgba(255, 255, 255, 0.07);
+
+  border-radius: 14px;
+}
+
+.dashboard
+  > main
+  > section[aria-labelledby="current-weather-title"]
+  > section
+  h2 {
+  margin-bottom: 5px;
+
+  color: #8ea1c4;
+
+  font-size: 11px;
+  font-weight: 550;
+}
+
+.dashboard
+  > main
+  > section[aria-labelledby="current-weather-title"]
+  > section
+  p {
+  margin-bottom: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.dashboard
+  > main
+  > section[aria-labelledby="current-weather-title"]
+  > section
+  small {
+  color: var(--text-muted);
+
+  font-size: 10px;
+}
+
+/* =========================================================
+   18. HOURLY FORECAST
+   ========================================================= */
+
+.dashboard > main > section[aria-labelledby="hourly-title"] {
+  grid-area: hourly;
+
+  min-width: 0;
+
+  padding: 18px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
+}
+
+.dashboard > main > section[aria-labelledby="hourly-title"] > h2 {
+  margin-bottom: 12px;
+
+  font-size: 16px;
+}
+
+.dashboard > main > section[aria-labelledby="hourly-title"] > ol {
+  min-width: 0;
+
+  display: grid;
+
+  grid-auto-flow: column;
+
+  grid-auto-columns: minmax(85px, 1fr);
+
+  overflow-x: auto;
+
+  scrollbar-width: thin;
+}
+
+.dashboard > main > section[aria-labelledby="hourly-title"] li {
+  min-height: 112px;
+
+  padding: 12px 8px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  color: var(--text-soft);
+
+  border-right: 1px solid var(--border);
+}
+
+.dashboard > main > section[aria-labelledby="hourly-title"] li:first-child {
+  color: white;
+
+  background: linear-gradient(180deg, #2450a1, #193d7d);
+
+  border-radius: 12px;
+}
+
+.dashboard > main > section[aria-labelledby="hourly-title"] li:last-child {
+  border-right: 0;
+}
+
+.dashboard > main > section[aria-labelledby="hourly-title"] time {
+  font-size: 11px;
+}
+
+.dashboard > main > section[aria-labelledby="hourly-title"] li span {
+  font-size: 23px;
+}
+
+.dashboard > main > section[aria-labelledby="hourly-title"] strong {
+  font-size: 14px;
+}
+
+/* =========================================================
+   19. 7-DAY FORECAST
+   ========================================================= */
+
+.dashboard > main > section[id="forecast"] {
+  grid-area: forecast;
+
+  min-width: 0;
+
+  padding: 20px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+}
+
+.dashboard > main > section[id="forecast"] > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  margin-bottom: 14px;
+}
+
+.dashboard > main > section[id="forecast"] h2 {
+  margin: 0;
+
+  font-size: 16px;
+}
+
+.dashboard > main > section[id="forecast"] > header a {
+  color: var(--primary-hover);
+
+  font-size: 11px;
+  font-weight: 650;
+
+  white-space: nowrap;
+}
+
+.dashboard > main > section[id="forecast"] > ol {
+  display: grid;
+}
+
+.dashboard > main > section[id="forecast"] li {
+  min-width: 0;
+
+  min-height: 54px;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(65px, 1fr)
+    35px
+    48px
+    48px;
+
+  align-items: center;
+
+  gap: 7px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.dashboard > main > section[id="forecast"] li:last-child {
+  border-bottom: 0;
+}
+
+.dashboard > main > section[id="forecast"] time {
+  color: var(--text-soft);
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.dashboard > main > section[id="forecast"] li span:first-of-type {
+  font-size: 20px;
+}
+
+.dashboard > main > section[id="forecast"] strong {
+  text-align: right;
+
+  font-size: 13px;
+}
+
+.dashboard > main > section[id="forecast"] li span:last-child {
+  color: var(--text-muted);
+
+  text-align: right;
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   20. AIR QUALITY
+   ========================================================= */
+
+.dashboard > main > section[id="air-quality"] {
+  grid-area: air;
+
+  min-width: 0;
+
+  padding: 20px;
+
+  display: grid;
+
+  grid-template-columns:
+    auto
+    auto
+    minmax(220px, 1fr);
+
+  align-items: center;
+
+  gap: 18px;
+
+  background: linear-gradient(135deg, #122540, #101c33);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+}
+
+.dashboard > main > section[id="air-quality"] h2 {
+  margin: 0;
+
+  font-size: 15px;
+}
+
+.dashboard > main > section[id="air-quality"] > p:nth-of-type(1) {
+  display: flex;
+  align-items: baseline;
+
+  gap: 6px;
+}
+
+.dashboard > main > section[id="air-quality"] > p:nth-of-type(1) strong {
+  font-size: 34px;
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
+}
+
+.dashboard > main > section[id="air-quality"] > p:nth-of-type(2) {
+  color: var(--success);
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.dashboard > main > section[id="air-quality"] > p:last-child {
+  color: var(--text-muted);
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   21. BOTTOM DASHBOARD CARDS
+   ========================================================= */
+
+.dashboard > main > section[aria-label="Additional weather information"] {
+  grid-area: bottom;
+
+  min-width: 0;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(280px, 1.6fr)
+    repeat(4, minmax(150px, 1fr));
+
+  gap: 16px;
+}
+
+/* =========================================================
+   22. COMMON BOTTOM CARD
+   ========================================================= */
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article {
+  min-width: 0;
+  min-height: 190px;
+
+  padding: 18px;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: var(--radius-lg);
+
+  box-shadow: var(--shadow);
+
+  overflow: hidden;
+
+  transition:
+    transform var(--transition),
+    border-color var(--transition),
+    box-shadow var(--transition);
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:hover {
+  transform: translateY(-2px);
+
+  border-color: var(--border-strong);
+
+  box-shadow: var(--shadow-hover);
+}
+
+.dashboard > main > section[aria-label="Additional weather information"] h2 {
+  margin-bottom: 14px;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   23. WEATHER MAP
+   ========================================================= */
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article#maps {
+  min-height: 260px;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article#maps
+  > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-bottom: 12px;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article#maps
+  > header
+  h2 {
+  margin: 0;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article#maps
+  > header
+  a {
+  color: var(--primary-hover);
+
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article#maps
+  figure {
+  min-height: 195px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 16px;
+
+  background: linear-gradient(145deg, #10284b, #0b1931);
+
+  border: 1px solid var(--border);
+
+  border-radius: 14px;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article#maps
+  figcaption {
+  color: var(--text-muted);
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   24. SUNRISE / SUNSET
+   ========================================================= */
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(2)
+  dl {
+  display: grid;
+
+  gap: 12px;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(2)
+  dl
+  div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 12px;
+
+  padding-bottom: 9px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(2)
+  dl
+  div:last-child {
+  border-bottom: 0;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(2)
+  dt {
+  color: var(--text-muted);
+
+  font-size: 11px;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(2)
+  dd {
+  font-size: 12px;
+  font-weight: 700;
+}
+
+/* =========================================================
+   25. UV INDEX
+   ========================================================= */
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(3)
+  strong {
+  font-size: 42px;
+
+  line-height: 1;
+
+  letter-spacing: -0.06em;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(3)
+  p:first-of-type {
+  margin-bottom: 10px;
+
+  color: var(--warning);
+
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(3)
+  p:last-child {
+  color: var(--text-muted);
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   26. PRECIPITATION
+   ========================================================= */
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(4)
+  p:first-of-type {
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(4)
+  p:last-child {
+  color: var(--text-muted);
+  font-size: 11px;
+}
+
+/* =========================================================
+   27. WIND STATUS
+   ========================================================= */
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(5)
+  strong {
+  font-size: 28px;
+  letter-spacing: -0.04em;
+}
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article:nth-child(5)
+  #wind-status-direction {
+  display: block;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   28. FOOTER
+   ========================================================= */
+
+body > footer {
+  width: min(calc(100% - 32px), var(--container));
+
+  margin: 0 auto 24px;
+
+  padding: 10px;
+
+  color: var(--text-muted);
+
+  text-align: center;
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   29. LARGE DESKTOP — 1600px+
+   ========================================================= */
+
+@media (min-width: 1600px) {
+  :root {
+    --sidebar: 250px;
+  }
+
+  body > header {
+    min-height: 82px;
+
+    padding-inline: 24px;
+  }
+
+  .dashboard {
+    gap: 20px;
+  }
+
+  .dashboard > main {
+    gap: 20px;
+  }
+
+  .dashboard > main > section[aria-labelledby="current-weather-title"] {
+    min-height: 480px;
+
+    padding: 40px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > article
+    p:first-of-type {
+    font-size: clamp(80px, 7vw, 125px);
+  }
+
+  .dashboard > main > section[aria-label="Additional weather information"] {
+    gap: 20px;
+  }
+}
+
+/* =========================================================
+   30. ULTRA LARGE / 2K / 4K — 1920px+
+   ========================================================= */
+
+@media (min-width: 1920px) {
+  :root {
+    --container: 2000px;
+    --sidebar: 270px;
+  }
+
+  body > header {
+    min-height: 88px;
+
+    padding-inline: 28px;
+  }
+
+  .dashboard {
+    gap: 22px;
+  }
+
+  .dashboard > main {
+    gap: 22px;
+  }
+
+  .dashboard > main > section[aria-labelledby="current-weather-title"] {
+    min-height: 510px;
+  }
+
+  .dashboard > main > section[aria-label="Additional weather information"] {
+    grid-template-columns:
+      minmax(360px, 1.7fr)
+      repeat(4, minmax(190px, 1fr));
+  }
+}
+
+/* =========================================================
+   31. DESKTOP / SMALL LAPTOP — 1200px to 1399px
+   ========================================================= */
+
+@media (max-width: 1399px) {
+  :root {
+    --sidebar: 210px;
+  }
+
+  .dashboard > main {
+    grid-template-columns:
+      minmax(0, 1.45fr)
+      minmax(290px, 0.9fr);
+  }
+
+  .dashboard > main > section[aria-label="Additional weather information"] {
+    grid-template-columns:
+      minmax(240px, 1.4fr)
+      repeat(4, minmax(135px, 1fr));
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article {
+    padding: 15px;
+  }
+}
+
+/* =========================================================
+   32. TABLET — 768px to 1199px
+   ========================================================= */
+
+@media (max-width: 1199px) {
+  :root {
+    --sidebar: 100%;
+  }
+
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard > aside {
+    position: static;
+
+    min-height: auto;
+
+    padding: 10px;
+  }
+
+  .dashboard > aside > nav ul {
+    display: flex;
+
+    gap: 5px;
+
+    overflow-x: auto;
+
+    scrollbar-width: none;
+  }
+
+  .dashboard > aside > nav ul::-webkit-scrollbar {
+    display: none;
+  }
+
+  .dashboard > aside > nav li {
+    flex: 0 0 auto;
+  }
+
+  .dashboard > aside > nav a {
+    min-height: 40px;
+
+    white-space: nowrap;
+
+    padding-inline: 14px;
+  }
+
+  .dashboard > aside > section[aria-labelledby="temperature-unit-title"] {
+    display: none;
+  }
+
+  .dashboard > aside > section[aria-labelledby="premium-title"] {
+    display: none;
+  }
+
+  .dashboard > main {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(280px, 0.8fr);
+
+    grid-template-areas:
+      "current forecast"
+      "hourly forecast"
+      "air     air"
+      "bottom  bottom";
+  }
+
+  .dashboard > main > section[aria-labelledby="current-weather-title"] {
+    min-height: 390px;
+  }
+
+  .dashboard > main > section[aria-label="Additional weather information"] {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article#maps {
+    grid-column: 1 / -1;
+  }
+}
+
+/* =========================================================
+   33. TABLET — 768px to 900px
+   ========================================================= */
+
+@media (max-width: 900px) {
+  body > header {
+    flex-wrap: wrap;
+  }
+
+  body > header form {
+    order: 3;
+
+    flex-basis: 100%;
+
+    max-width: none;
+  }
+
+  .dashboard > main {
+    grid-template-columns: 1fr;
+
+    grid-template-areas:
+      "current"
+      "hourly"
+      "forecast"
+      "air"
+      "bottom";
+  }
+
+  .dashboard > main > section[id="forecast"] {
+    width: 100%;
+  }
+
+  .dashboard > main > section[aria-label="Additional weather information"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article#maps {
+    grid-column: 1 / -1;
+  }
+}
+
+/* =========================================================
+   34. MOBILE — 481px to 767px
+   ========================================================= */
+
+@media (max-width: 767px) {
+  body > header {
+    width: calc(100% - 20px);
+
+    margin-top: 10px;
+
+    padding: 10px;
+
+    gap: 10px;
+
+    border-radius: var(--radius-md);
+  }
+
+  body > header > a {
+    font-size: 17px;
+  }
+
+  body > header > a span:first-child {
+    font-size: 22px;
+  }
+
+  body > header > nav {
+    margin-left: auto;
+  }
+
+  body > header > nav button {
+    width: 38px;
+    height: 38px;
+  }
+
+  body > header form {
+    gap: 6px;
+  }
+
+  body > header form input {
+    min-height: 44px;
+  }
+
+  body > header form button {
+    min-height: 44px;
+
+    padding-inline: 14px;
+  }
+
+  .dashboard {
+    width: calc(100% - 20px);
+
+    margin-top: 10px;
+
+    gap: 10px;
+  }
+
+  .dashboard > aside {
+    padding: 6px;
+
+    border-radius: var(--radius-md);
+  }
+
+  .dashboard > aside > nav a {
+    min-height: 38px;
+
+    padding-inline: 11px;
+
+    font-size: 12px;
+  }
+
+  .dashboard > main {
+    gap: 10px;
+  }
+
+  .dashboard > main > section[aria-labelledby="current-weather-title"] {
+    min-height: auto;
+
+    padding: 22px;
+
+    border-radius: var(--radius-lg);
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > header {
+    margin-bottom: 28px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > article {
+    margin-bottom: 28px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > article
+    p:first-of-type {
+    font-size: clamp(68px, 21vw, 100px);
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > section
+    article {
+    padding: 12px;
+  }
+
+  .dashboard > main > section[aria-labelledby="hourly-title"],
+  .dashboard > main > section[id="forecast"],
+  .dashboard > main > section[id="air-quality"] {
+    padding: 15px;
+  }
+
+  .dashboard > main > section[id="air-quality"] {
+    grid-template-columns:
+      1fr
+      auto;
+
+    gap: 10px;
+  }
+
+  .dashboard > main > section[id="air-quality"] h2 {
+    grid-column: 1 / -1;
+  }
+
+  .dashboard > main > section[id="air-quality"] > p:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .dashboard > main > section[aria-label="Additional weather information"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article {
+    min-height: 170px;
+
+    padding: 15px;
+
+    border-radius: var(--radius-md);
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article#maps {
+    min-height: 240px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article#maps
+    figure {
+    min-height: 175px;
+  }
+
+  body > footer {
+    width: calc(100% - 20px);
+  }
+}
+
+/* =========================================================
+   35. SMALL MOBILE — 480px and below
+   ========================================================= */
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  body > header {
+    width: calc(100% - 12px);
+
+    margin-top: 6px;
+
+    padding: 8px;
+  }
+
+  body > header > a {
+    font-size: 15px;
+  }
+
+  body > header > a span:first-child {
+    font-size: 20px;
+  }
+
+  body > header > nav {
+    gap: 2px;
+  }
+
+  body > header > nav button {
+    width: 34px;
+    height: 34px;
+
+    font-size: 14px;
+  }
+
+  body > header form button {
+    padding-inline: 11px;
+
+    font-size: 12px;
+  }
+
+  .dashboard {
+    width: calc(100% - 12px);
+
+    margin-top: 6px;
+  }
+
+  .dashboard > main > section[aria-labelledby="current-weather-title"] {
+    padding: 18px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > header
+    p:first-child {
+    font-size: 19px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > header
+    p:last-child {
+    font-size: 11px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > article
+    p:first-of-type {
+    font-size: clamp(60px, 22vw, 82px);
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > section {
+    gap: 6px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > section
+    article {
+    padding: 10px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > section
+    h2 {
+    font-size: 10px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > section
+    p {
+    font-size: 13px;
+  }
+
+  .dashboard > main > section[id="forecast"] li {
+    grid-template-columns:
+      minmax(60px, 1fr)
+      30px
+      42px
+      42px;
+
+    gap: 4px;
+  }
+
+  .dashboard > main > section[id="forecast"] time {
+    font-size: 11px;
+  }
+
+  .dashboard > main > section[id="forecast"] li span:first-of-type {
+    font-size: 17px;
+  }
+
+  .dashboard > main > section[id="forecast"] strong,
+  .dashboard > main > section[id="forecast"] li span:last-child {
+    font-size: 11px;
+  }
+
+  .dashboard > main > section[id="air-quality"] {
+    padding: 15px;
+  }
+
+  .dashboard > main > section[id="air-quality"] > p:nth-of-type(1) strong {
+    font-size: 30px;
+  }
+
+  .dashboard > main > section[aria-label="Additional weather information"] {
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article,
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article#maps {
+    min-height: 175px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article#maps
+    figure {
+    min-height: 130px;
+  }
+}
+
+/* =========================================================
+   36. EXTRA SMALL DEVICES — 360px and below
+   ========================================================= */
+
+@media (max-width: 360px) {
+  body > header form button {
+    font-size: 0;
+
+    width: 44px;
+
+    position: relative;
+  }
+
+  body > header form button::after {
+    content: "⌕";
+
+    font-size: 18px;
+  }
+
+  .dashboard > main > section[aria-labelledby="current-weather-title"] {
+    padding: 15px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > article
+    p:first-of-type {
+    font-size: 58px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-labelledby="current-weather-title"]
+    > section
+    article {
+    padding: 8px;
+  }
+
+  .dashboard > main > section[id="forecast"] {
+    padding: 12px;
+  }
+
+  .dashboard > main > section[id="forecast"] li {
+    grid-template-columns:
+      minmax(52px, 1fr)
+      26px
+      38px
+      38px;
+  }
+}
+
+/* =========================================================
+   37. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* =========================================================
+   38. WEATHER MAP — LEAFLET
+   ========================================================= */
+
+/*
+   Main Leaflet map container.
+
+   JavaScript:
+   const map = L.map("weather-map");
+
+   isi element ke andar map render karega.
+*/
+
+#weather-map {
+  width: 100%;
+  height: 100%;
+  min-height: 195px;
+
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  background: #dce7f5;
+}
+
+/* ---------------------------------------------------------
+   Map figure
+   --------------------------------------------------------- */
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article#maps
+  > figure {
+  position: relative;
+
+  min-height: 195px;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  background: #0b1931;
+}
+
+/* ---------------------------------------------------------
+   Remove old placeholder behaviour
+   --------------------------------------------------------- */
+
+.dashboard
+  > main
+  > section[aria-label="Additional weather information"]
+  > article#maps
+  > figcaption {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+
+  padding: 0;
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+/* ---------------------------------------------------------
+   Leaflet base
+   --------------------------------------------------------- */
+
+#weather-map.leaflet-container {
+  width: 100%;
+  height: 100%;
+  min-height: 195px;
+
+  font-family:
+    Inter,
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background: #dce7f5;
+
+  outline: none;
+}
+
+/* =========================================================
+   39. LEAFLET CONTROLS
+   ========================================================= */
+
+#weather-map .leaflet-control-zoom {
+  margin: 12px;
+
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+
+  border-radius: 10px !important;
+
+  overflow: hidden;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+#weather-map .leaflet-control-zoom a {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  color: #172033;
+
+  background: rgba(255, 255, 255, 0.94);
+
+  border: 0;
+
+  font-size: 18px;
+
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+#weather-map .leaflet-control-zoom a:hover {
+  color: #0d5eea;
+
+  background: #ffffff;
+}
+
+/* =========================================================
+   40. LEAFLET ATTRIBUTION
+   ========================================================= */
+
+#weather-map .leaflet-control-attribution {
+  margin: 0 6px 6px 0;
+
+  padding: 3px 6px;
+
+  color: #526079;
+
+  background: rgba(255, 255, 255, 0.88);
+
+  border-radius: 6px;
+
+  font-size: 9px;
+
+  line-height: 1.3;
+}
+
+#weather-map .leaflet-control-attribution a {
+  color: #245fc7;
+}
+
+/* =========================================================
+   41. MAP POPUP
+   ========================================================= */
+
+#weather-map .leaflet-popup-content-wrapper {
+  color: #172033;
+
+  background: rgba(255, 255, 255, 0.98);
+
+  border-radius: 14px;
+
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+}
+
+#weather-map .leaflet-popup-tip {
+  background: #ffffff;
+}
+
+#weather-map .leaflet-popup-content {
+  margin: 14px 16px;
+
+  min-width: 150px;
+
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+#weather-map .leaflet-popup-close-button {
+  color: #71809c !important;
+
+  font-size: 18px !important;
+}
+
+#weather-map .leaflet-popup-close-button:hover {
+  color: #172033 !important;
+}
+
+/* =========================================================
+   42. MAP MARKER
+   ========================================================= */
+
+.map-location-marker {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  color: #ffffff;
+
+  background: linear-gradient(135deg, #4f8cff, #2455c4);
+
+  border: 3px solid rgba(255, 255, 255, 0.95);
+
+  border-radius: 50%;
+
+  box-shadow: 0 8px 22px rgba(20, 70, 160, 0.35);
+}
+
+/* =========================================================
+   43. MAP CARD RESPONSIVE
+   ========================================================= */
+
+/* Large desktop */
+
+@media (min-width: 1600px) {
+  #weather-map,
+  #weather-map.leaflet-container {
+    min-height: 220px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article#maps
+    > figure {
+    min-height: 220px;
+  }
+}
+
+/* 2K / 4K */
+
+@media (min-width: 1920px) {
+  #weather-map,
+  #weather-map.leaflet-container {
+    min-height: 245px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article#maps
+    > figure {
+    min-height: 245px;
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 1199px) {
+  #weather-map,
+  #weather-map.leaflet-container {
+    min-height: 230px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article#maps
+    > figure {
+    min-height: 230px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+  #weather-map,
+  #weather-map.leaflet-container {
+    min-height: 175px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article#maps
+    > figure {
+    min-height: 175px;
+  }
+
+  #weather-map .leaflet-control-zoom {
+    margin: 8px;
+  }
+
+  #weather-map .leaflet-control-zoom a {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Small mobile */
+
+@media (max-width: 480px) {
+  #weather-map,
+  #weather-map.leaflet-container {
+    min-height: 150px;
+  }
+
+  .dashboard
+    > main
+    > section[aria-label="Additional weather information"]
+    > article#maps
+    > figure {
+    min-height: 150px;
+  }
+
+  #weather-map .leaflet-control-attribution {
+    display: none;
+  }
+}

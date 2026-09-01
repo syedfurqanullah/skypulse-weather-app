@@ -1,0 +1,11 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+*.log
+
+# Local env (agar future mein API key .env mein daalo)
+.env

@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta
+      name="description"
+      content="SkyPulse is a modern weather dashboard providing current weather, hourly forecasts, 7-day forecasts, air quality, weather maps and more."
+    />
+
+    <meta name="theme-color" content="#0f172a" />
+
+    <title>SkyPulse — Modern Weather Dashboard</title>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Leaflet Map CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+  </head>
+
+  <body>
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="site-header">
+      <!-- Logo -->
+      <a href="/" class="brand" aria-label="SkyPulse Home">
+        <span aria-hidden="true">🌤️</span>
+        <span>SkyPulse</span>
+      </a>
+
+      <!-- City Search -->
+      <form class="weather-search" role="search">
+        <label for="city-search"> Search for a city </label>
+
+        <input
+          type="search"
+          id="city-search"
+          name="city"
+          placeholder="Search for a city..."
+          autocomplete="off"
+          spellcheck="false"
+        />
+
+        <button type="submit">Search</button>
+      </form>
+
+      <!-- Header Actions -->
+      <nav class="header-actions" aria-label="Header actions">
+        <button type="button" aria-label="Settings">⚙️</button>
+
+        <button type="button" aria-label="Notifications">🔔</button>
+
+        <button type="button" aria-label="User account">👤</button>
+      </nav>
+    </header>
+
+    <!-- =====================================================
+         DASHBOARD
+    ====================================================== -->
+
+    <div class="dashboard">
+      <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+      <aside class="sidebar" aria-label="Weather dashboard sidebar">
+        <!-- Main Navigation -->
+        <nav class="sidebar-navigation" aria-label="Main navigation">
+          <ul>
+            <li>
+              <a href="#overview"> Overview </a>
+            </li>
+
+            <li>
+              <a href="#forecast"> Forecast </a>
+            </li>
+
+            <li>
+              <a href="#maps"> Maps </a>
+            </li>
+
+            <li>
+              <a href="#air-quality"> Air Quality </a>
+            </li>
+
+            <li>
+              <a href="#alerts"> Alerts </a>
+            </li>
+
+            <li>
+              <a href="#favorites"> Favorites </a>
+            </li>
+
+            <li>
+              <a href="#settings"> Settings </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Temperature Unit -->
+        <section
+          class="temperature-unit"
+          aria-labelledby="temperature-unit-title"
+        >
+          <h2 id="temperature-unit-title">Temperature Unit</h2>
+
+          <div>
+            <button type="button" aria-pressed="true">°C</button>
+
+            <button type="button" aria-pressed="false">°F</button>
+          </div>
+        </section>
+
+        <!-- Premium -->
+        <section class="premium-card" aria-labelledby="premium-title">
+          <h2 id="premium-title">Upgrade to Pro</h2>
+
+          <p>Unlock radar maps, detailed insights and an ad-free experience.</p>
+
+          <a href="#premium"> Go Premium </a>
+        </section>
+      </aside>
+
+      <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+      <main id="overview" class="dashboard-main">
+        <!-- =================================================
+                 CURRENT WEATHER
+            ================================================== -->
+
+        <section
+          class="current-weather"
+          aria-labelledby="current-weather-title"
+        >
+          <header>
+            <div>
+              <p>
+                📍
+                <span id="current-location"> New York, USA </span>
+              </p>
+
+              <p id="current-date">Monday, May 20 · 10:30 AM</p>
+            </div>
+          </header>
+
+          <!-- Main Weather -->
+          <article>
+            <div>
+              <h1 id="current-weather-title">Current Weather</h1>
+
+              <p id="current-temperature">24°C</p>
+
+              <p id="current-condition">Partly Cloudy</p>
+
+              <p id="feels-like">Feels like 26°C</p>
+            </div>
+          </article>
+
+          <!-- Current Weather Details -->
+          <section class="weather-details" aria-label="Current weather details">
+            <article>
+              <h2>Humidity</h2>
+
+              <p id="humidity">60%</p>
+            </article>
+
+            <article>
+              <h2>Wind</h2>
+
+              <p id="wind-speed">18 km/h</p>
+
+              <small id="wind-direction"> NE </small>
+            </article>
+
+            <article>
+              <h2>Pressure</h2>
+
+              <p id="pressure">1012 hPa</p>
+            </article>
+
+            <article>
+              <h2>Visibility</h2>
+
+              <p id="visibility">10 km</p>
+            </article>
+          </section>
+        </section>
+
+        <!-- =================================================
+                 HOURLY FORECAST
+            ================================================== -->
+
+        <section class="hourly-forecast" aria-labelledby="hourly-title">
+          <header>
+            <h2 id="hourly-title">Hourly Forecast</h2>
+          </header>
+
+          <ol id="hourly-list">
+            <li>
+              <time> Now </time>
+
+              <span aria-hidden="true"> 🌤️ </span>
+
+              <strong> 24°C </strong>
+            </li>
+
+            <li>
+              <time> 11 AM </time>
+
+              <span aria-hidden="true"> ☀️ </span>
+
+              <strong> 25°C </strong>
+            </li>
+
+            <li>
+              <time> 12 PM </time>
+
+              <span aria-hidden="true"> ☀️ </span>
+
+              <strong> 26°C </strong>
+            </li>
+
+            <li>
+              <time> 1 PM </time>
+
+              <span aria-hidden="true"> 🌤️ </span>
+
+              <strong> 27°C </strong>
+            </li>
+
+            <li>
+              <time> 2 PM </time>
+
+              <span aria-hidden="true"> 🌦️ </span>
+
+              <strong> 27°C </strong>
+            </li>
+
+            <li>
+              <time> 3 PM </time>
+
+              <span aria-hidden="true"> 🌧️ </span>
+
+              <strong> 26°C </strong>
+            </li>
+          </ol>
+        </section>
+
+        <!-- =================================================
+                 7 DAY FORECAST
+            ================================================== -->
+
+        <section
+          id="forecast"
+          class="weekly-forecast"
+          aria-labelledby="forecast-title"
+        >
+          <header>
+            <div>
+              <span class="section-eyebrow"> FORECAST </span>
+
+              <h2 id="forecast-title">7-Day Forecast</h2>
+            </div>
+
+            <a href="#full-forecast"> View full forecast </a>
+          </header>
+
+          <ol id="forecast-list">
+            <li>
+              <time> Today </time>
+
+              <span aria-hidden="true"> 🌤️ </span>
+
+              <strong> 28°C </strong>
+
+              <span> 18°C </span>
+            </li>
+
+            <li>
+              <time> Tuesday </time>
+
+              <span aria-hidden="true"> ☀️ </span>
+
+              <strong> 27°C </strong>
+
+              <span> 17°C </span>
+            </li>
+
+            <li>
+              <time> Wednesday </time>
+
+              <span aria-hidden="true"> 🌧️ </span>
+
+              <strong> 26°C </strong>
+
+              <span> 16°C </span>
+            </li>
+
+            <li>
+              <time> Thursday </time>
+
+              <span aria-hidden="true"> 🌧️ </span>
+
+              <strong> 24°C </strong>
+
+              <span> 15°C </span>
+            </li>
+
+            <li>
+              <time> Friday </time>
+
+              <span aria-hidden="true"> ☀️ </span>
+
+              <strong> 23°C </strong>
+
+              <span> 14°C </span>
+            </li>
+
+            <li>
+              <time> Saturday </time>
+
+              <span aria-hidden="true"> 🌤️ </span>
+
+              <strong> 24°C </strong>
+
+              <span> 16°C </span>
+            </li>
+
+            <li>
+              <time> Sunday </time>
+
+              <span aria-hidden="true"> 🌧️ </span>
+
+              <strong> 26°C </strong>
+
+              <span> 17°C </span>
+            </li>
+          </ol>
+        </section>
+
+        <!-- =================================================
+                 AIR QUALITY
+            ================================================== -->
+
+        <section
+          id="air-quality"
+          class="air-quality"
+          aria-labelledby="air-quality-title"
+        >
+          <header>
+            <span class="section-eyebrow"> AIR QUALITY </span>
+
+            <h2 id="air-quality-title">Air Quality Index</h2>
+          </header>
+
+          <div>
+            <p>
+              <strong id="aqi-value"> 42 </strong>
+            </p>
+
+            <p id="aqi-status">Good</p>
+
+            <p id="aqi-description">
+              Air quality is satisfactory and poses little or no risk.
+            </p>
+          </div>
+        </section>
+
+        <!-- =================================================
+                 ADDITIONAL WEATHER INFORMATION
+            ================================================== -->
+
+        <section
+          class="additional-weather"
+          aria-label="Additional weather information"
+        >
+          <!-- =================================================
+                     WEATHER MAP
+                ================================================== -->
+
+          <article id="maps" class="weather-map-card">
+            <header>
+              <div>
+                <span class="section-eyebrow"> LOCATION </span>
+
+                <h2>Weather Map</h2>
+              </div>
+
+              <a href="#map"> View map </a>
+            </header>
+
+            <!--
+                        Leaflet will render the interactive
+                        map inside this container.
+                    -->
+
+            <figure>
+              <div id="weather-map" aria-label="Interactive weather map"></div>
+
+              <figcaption>Current weather location</figcaption>
+            </figure>
+          </article>
+
+          <!-- =================================================
+                     SUNRISE / SUNSET
+                ================================================== -->
+
+          <article class="sun-card">
+            <h2>Sunrise &amp; Sunset</h2>
+
+            <dl>
+              <div>
+                <dt>Sunrise</dt>
+
+                <dd id="sunrise">5:29 AM</dd>
+              </div>
+
+              <div>
+                <dt>Sunset</dt>
+
+                <dd id="sunset">8:20 PM</dd>
+              </div>
+
+              <div>
+                <dt>Daylight</dt>
+
+                <dd id="daylight">14h 51m</dd>
+              </div>
+            </dl>
+          </article>
+
+          <!-- =================================================
+                     UV INDEX
+                ================================================== -->
+
+          <article class="uv-card">
+            <h2>UV Index</h2>
+
+            <p>
+              <strong id="uv-value"> 6 </strong>
+
+              <span id="uv-level"> High </span>
+            </p>
+
+            <p id="uv-advice">Protection needed</p>
+          </article>
+
+          <!-- =================================================
+                     PRECIPITATION
+                ================================================== -->
+
+          <article class="precipitation-card">
+            <h2>Chance of Rain</h2>
+            <p>
+              <strong id="precipitation-value">60%</strong>
+            </p>
+          </article>
+
+          <!-- =================================================
+                     WIND STATUS
+                ================================================== -->
+
+          <article class="wind-card">
+            <h2>Wind Status</h2>
+            <p>
+              <strong id="wind-status">18 km/h</strong>
+              <span id="wind-status-direction">North East</span>
+            </p>
+          </article>
+        </section>
+
+        <!-- =================================================
+                 FUTURE SECTIONS
+            ================================================== -->
+
+        <section id="alerts" hidden aria-labelledby="alerts-title">
+          <h2 id="alerts-title">Weather Alerts</h2>
+        </section>
+
+        <section id="favorites" hidden aria-labelledby="favorites-title">
+          <h2 id="favorites-title">Favorite Cities</h2>
+        </section>
+
+        <section id="settings" hidden aria-labelledby="settings-title">
+          <h2 id="settings-title">Settings</h2>
+        </section>
+      </main>
+    </div>
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="site-footer">
+      <p>&copy; 2026 SkyPulse. All rights reserved.</p>
+    </footer>
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+    <!-- Leaflet Map Library -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Application JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>

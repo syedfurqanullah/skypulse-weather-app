@@ -1,6 +1,6 @@
 # 🌤️ SkyPulse — Modern Weather Dashboard
 
-A modern, responsive weather dashboard built with HTML, CSS, and JavaScript — no frameworks.
+A modern, responsive weather dashboard built with HTML, CSS, and JavaScript.
 
 ## Live Demo
 

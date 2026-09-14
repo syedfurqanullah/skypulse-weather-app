@@ -14,8 +14,10 @@
 
     <title>SkyPulse — Modern Weather Dashboard</title>
 
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
+    <!-- Application styles: tokens, components, and responsive rules. -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
 
     <!-- Leaflet Map CSS -->
     <link
@@ -512,7 +514,11 @@
     <!-- Leaflet Map Library -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-    <!-- Application JavaScript -->
-    <script src="script.js"></script>
+    <!-- Application JavaScript: shared dependencies load before the app entry point. -->
+    <script src="js/api.js" defer></script>
+    <script src="js/storage.js" defer></script>
+    <script src="js/utils.js" defer></script>
+    <script src="js/ui.js" defer></script>
+    <script src="js/app.js" defer></script>
   </body>
 </html>

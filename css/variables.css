@@ -1,0 +1,27 @@
+/* SkyPulse design tokens. Keep visual values centralized here. */
+:root {
+  --bg: #070d1b;
+  --bg-soft: #0b1325;
+  --surface: #101a2f;
+  --surface-2: #14213a;
+  --surface-3: #182744;
+  --primary: #4f8cff;
+  --primary-hover: #639bff;
+  --text: #f7f9ff;
+  --text-soft: #aebbd3;
+  --text-muted: #71809c;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.13);
+  --success: #63d471;
+  --warning: #f5c85b;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+  --radius-xl: 28px;
+  --shadow: 0 12px 35px rgba(0, 0, 0, 0.24);
+  --shadow-hover: 0 18px 42px rgba(0, 0, 0, 0.3);
+  --container: 1800px;
+  --sidebar: 230px;
+  --transition-fast: 160ms ease;
+  --transition: 220ms ease;
+}

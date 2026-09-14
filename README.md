@@ -1,25 +1,26 @@
-<<<<<<< HEAD
+
 # 🌤️ SkyPulse — Modern Weather Dashboard
 
-A modern, responsive weather dashboard built with HTML, CSS, and JavaScript.
+A modern, responsive weather dashboard built with HTML, CSS, and JavaScript — no frameworks.
 
 ## Live Demo
 
-[View SkyPulse Weather App](https://sky-pulse-weather-app.netlify.app/)
+SkyPulse — Modern Weather Dashboard
+https://sky-pulse-weather-app.netlify.app/
 
 ## 📸 Screenshots
 
 ### Dashboard
 
-![Sky Pulse Weather Dashboard](./screenshots/dashboard.png)
+![Sky Pulse Weather Dashboard](./assets/screenshots/dashboard.png)
 
 ### Forecast
 
-![Sky Pulse Forecast, Air Quality & Map](./screenshots/forecast.png)
+![Sky Pulse Forecast, Air Quality & Map](./assets/screenshots/forecast.png)
 
 ### Responsive
 
-![Sky Pulse Responsive Layout](./screenshots/responsive.png)
+![Sky Pulse Responsive Layout](./assets/screenshots/responsive.png)
 
 ## Features
 
@@ -35,7 +36,7 @@ A modern, responsive weather dashboard built with HTML, CSS, and JavaScript.
 - °C / °F unit toggle
 - Fully responsive — desktop, tablet, mobile
 
-## Tech Stack
+## Technologies
 
 - HTML5
 - Modern CSS3
@@ -46,9 +47,18 @@ A modern, responsive weather dashboard built with HTML, CSS, and JavaScript.
 
 ```text
 index.html
-style.css
-script.js
-screenshots/
+css/
+  variables.css    
+  style.css     
+  responsive.css  
+js/
+  app.js      
+  api.js          
+  ui.js           
+  storage.js
+  utils.js       
+assets/      
+  screenshots/
 README.md
 ```
 
@@ -68,12 +78,9 @@ http://localhost:8000
 
 ## Notes
 
-I built this weather app to improve my frontend development skills and practice JavaScript, API integration, responsive design, and dynamic UI. It fetches real-time weather data from an API and displays it in a clean and responsive interface.
+This project was built to strengthen my skills in frontend development, responsive design, UI/UX, and JavaScript while creating a realistic SaaS product experience.
 
 ## Author
 
 - GitHub: [@syedfurqanullah](https://github.com/syedfurqanullah)
 - LinkedIn: [Syed Furqan Ullah](https://www.linkedin.com/in/syed-furqan-ullah/)
-=======
-# skypulse-weather-app
->>>>>>> 8430b6e (Initial commit)

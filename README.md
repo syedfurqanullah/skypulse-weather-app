@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🌤️ SkyPulse — Modern Weather Dashboard
 
 A modern, responsive weather dashboard built with HTML, CSS, and JavaScript.
@@ -73,3 +74,6 @@ I built this weather app to improve my frontend development skills and practice 
 
 - GitHub: [@syedfurqanullah](https://github.com/syedfurqanullah)
 - LinkedIn: [Syed Furqan Ullah](https://www.linkedin.com/in/syed-furqan-ullah/)
+=======
+# skypulse-weather-app
+>>>>>>> 8430b6e (Initial commit)

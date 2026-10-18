@@ -81,6 +81,6 @@ This project was built to strengthen my skills in frontend development, responsi
 
 ## Author
 
-- My Portfolio: [Syed Furqan Ullah](https://syed-furqan-ullah-portfolio.netlify.app/)
+- My Portfolio: [Syed Furqan Ullah](https://syedfurqanullah.netlify.app/)
 - GitHub: [@syedfurqanullah](https://github.com/syedfurqanullah)
 - LinkedIn: [Syed Furqan Ullah](https://www.linkedin.com/in/syed-furqan-ullah/)
